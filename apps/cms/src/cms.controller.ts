@@ -14,7 +14,7 @@ import { UpdateProgramDto } from './dto/update-program.dto';
 import { Program } from './entities/program.entity';
 
 @ApiTags('CMS Programs')
-@Controller('cms/programs')
+@Controller('/programs')
 export class CmsController {
   constructor(private readonly cmsService: CmsService) {}
 

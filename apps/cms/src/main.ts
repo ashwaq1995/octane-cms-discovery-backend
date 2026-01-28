@@ -6,6 +6,8 @@ import { CmsModule } from './cms.module';
 async function bootstrap() {
   const app = await NestFactory.create(CmsModule);
 
+  app.setGlobalPrefix('cms');
+
   // Global validation (DTOs + class-validator)
   app.useGlobalPipes(
     new ValidationPipe({
