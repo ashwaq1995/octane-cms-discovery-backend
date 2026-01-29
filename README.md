@@ -11,35 +11,61 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/~nestjscore" target="_blank">
-    <img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" />
-  </a>
-  <a href="https://github.com/nestjs/nest/blob/master/LICENSE" target="_blank">
-    <img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" />
-  </a>
+  <img src="https://img.shields.io/badge/NestJS-v11-red" alt="NestJS" />
   <img src="https://img.shields.io/badge/PostgreSQL-FTS-blue" alt="Postgres FTS" />
   <img src="https://img.shields.io/badge/Swagger-OpenAPI-green" alt="Swagger" />
 </p>
 
 ---
 
-## Description
+## 📌 Description
 
 This project is a **backend technical assignment** that implements two main components:
 
-- **CMS (Content Management System)**
-  Internal system used by editors/admins to create, update, and manage programs and their metadata.
+### 🛠 CMS (Content Management System)
+An internal system used by editors or administrators to:
+- Create and update programs (podcasts / documentaries)
+- Manage metadata such as:
+  - Title
+  - Description
+  - Category
+  - Language
+  - Duration
+  - Publish date
+- Control program publishing state
 
-- **Discovery**
-  Public-facing system that allows users to browse and search published programs efficiently.
+### 🔍 Discovery
+A public-facing service that allows users to:
+- Browse published programs
+- View program details
+- Search programs efficiently using **PostgreSQL Full-Text Search**
 
-The solution is built with **NestJS**, **TypeScript**, and **PostgreSQL**, and uses **PostgreSQL Full-Text Search** for scalable search functionality.
+The solution is built using **NestJS**, **TypeScript**, and **PostgreSQL**, and follows clean architecture principles with clear module boundaries.
 
 ---
 
-## Architecture Overview
+## 🧱 Architecture Overview
 
-- CMS and Discovery are implemented as **separate services/apps**
-- Clear module boundaries with **low coupling**
-- Both services connect to the same PostgreSQL database (for this assignment)
-- Design supports future scalability (caching, read replicas, external search engines)
+- CMS and Discovery are implemented as **separate NestJS applications**
+- Low coupling between internal (CMS) and public (Discovery) systems
+- Shared PostgreSQL database (for simplicity in this assignment)
+- Design supports future scalability:
+  - Caching (Redis)
+  - Read replicas
+  - External search engines (e.g. OpenSearch / Elasticsearch)
+
+---
+
+## 🧪 How to Test the Assignment (Step by Step)
+
+This section explains **exactly how to run and test the CMS and Discovery services**.
+
+---
+
+### 1️⃣ Start the infrastructure (PostgreSQL)
+
+Ensure PostgreSQL is running.
+
+If using Docker:
+```bash
+docker compose up -d
